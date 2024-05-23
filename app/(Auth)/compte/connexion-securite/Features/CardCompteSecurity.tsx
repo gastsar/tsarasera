@@ -1,9 +1,6 @@
+import { BsShieldFillCheck, BsShieldFillExclamation } from "react-icons/bs";
 import { IoIosArrowForward } from "react-icons/io";
-import {
-  MdComputer,
-  MdOutlineSecurityUpdateGood,
-  MdSystemSecurityUpdateWarning,
-} from "react-icons/md";
+import { MdComputer } from "react-icons/md";
 
 interface CardCompteSecurityProps {
   title: string;
@@ -24,9 +21,9 @@ export const CardCompteSecurity = ({
           {isScurity ? (
             <p>
               {!isScurity ? (
-                <MdSystemSecurityUpdateWarning className="text-4xl text-amber-600 bg-amber-600/30 rounded-full p-2" />
+                <BsShieldFillExclamation className="text-4xl text-amber-600 bg-amber-600/10 rounded-full p-2" />
               ) : (
-                <MdOutlineSecurityUpdateGood className="text-4xl text-green-600 bg-green-600/30 rounded-full p-2" />
+                <BsShieldFillCheck className="text-4xl text-green-600 bg-green-600/10 rounded-full p-2" />
               )}
             </p>
           ) : (

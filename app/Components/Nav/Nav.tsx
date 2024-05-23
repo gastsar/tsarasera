@@ -5,15 +5,14 @@ import { usePathname, useRouter } from "next/navigation";
 import { BiSolidMessageAltDetail } from "react-icons/bi";
 import { FaRegHeart, FaUser } from "react-icons/fa";
 import { HiOutlineBellAlert } from "react-icons/hi2";
-import { IoMdHome } from "react-icons/io";
 import { MdAddBox } from "react-icons/md";
+import { SearchBar } from "./SearchBar";
 
 function Nav() {
   const router = useRouter();
   const pathname = usePathname();
 
   const menuNav = [
-    { name: "Home", icon: IoMdHome, path: "/" },
     {
       name: "Mes recherches",
       icon: HiOutlineBellAlert,
@@ -29,10 +28,12 @@ function Nav() {
 
   return (
     <>
-      <nav className="w-full h-[50px] shadow-md bg-white p-3">
-        <ul className="flex justify-between items-center">
+      <nav className="w-full h-auto shadow-md bg-white p-3">
+        <ul className="flex justify-between  items-center">
           <li>
-            <img src="/logo.png" alt="logo" />
+            <Link href="/">
+              <img src="/logo.svg" alt="logo" />
+            </Link>
           </li>
           <li>
             <Button variant="primary">
@@ -41,12 +42,15 @@ function Nav() {
             </Button>
           </li>
           <li>
+            <SearchBar />
+          </li>
+          <li>
             <ul className="flex gap-5">
               {menuNav.map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.path}
-                    className={` flex gap-2 items-center ${
+                    className={` flex flex-col gap-1 items-center  text-sm ${
                       pathname === item.path
                         ? "text-blue-500"
                         : "text-gray-700 hover:text-blue-700"

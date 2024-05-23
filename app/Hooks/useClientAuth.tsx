@@ -69,13 +69,13 @@ const useClientAuth = () => {
 
   useEffect(() => {
     if (user) {
-      router.push("/Dashboard");
+      router.push("/compte");
     }
   }, [user, router]);
 
   const redirectIfAuthentificated = () => {
     if (user) {
-      router.push("/Dashboard");
+      router.push("/compte");
     }
   };
 
